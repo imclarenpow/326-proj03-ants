@@ -1,4 +1,12 @@
 # Ants on a Plane
+## Current Issues
+Currently Doesn't run Because mapGet returns a null value.
+
+## Implementation
+Two classes = ```Ant``` which is an object class that is run by ```AntsJourney``` the main class
+```AntsJourney``` processes the lines into individual ants and passes through the information about each ant to ```Ant```
+
+## Introduction
 In this étude you are going to be simulating (some of) the behaviour of creatures related
 to [Langton’s ant](https://en.wikipedia.org/wiki/Langton%27s_ant). Imagine an (in principle) infinite plane of square tiles, with a lonely
 ant initially standing at (0, 0). The ant will take a certain sequence of steps of unit length
