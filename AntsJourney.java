@@ -16,8 +16,10 @@ public class AntsJourney {
             ant[i] = new Ant(ants.get(i));
             ant[i].task(steps.get(i));
             String[] dna = ant[i].getDNA();
-            for(String d : dna){
-                System.out.println(d);
+            for(int j=0; j<dna.length; j++){
+                String tempDNA = dna[j];
+
+                System.out.println(tempDNA.substring(4));
             }
             System.out.println(steps.get(i));
             System.out.println(ant[i].getPosition());

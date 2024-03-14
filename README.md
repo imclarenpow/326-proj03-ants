@@ -1,6 +1,8 @@
 # Ants on a Plane
+## Ease of use
+To compile code just run ```./compile.sh``` in terminal (you need to have bash installed)
 ## Current Issues
-Currently Doesn't run Because mapGet returns a null value.
+Currently only issue is that it doesn't like negative integer values? need to figure out whats going on.
 
 ## Implementation
 Two classes = ```Ant``` which is an object class that is run by ```AntsJourney``` the main class

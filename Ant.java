@@ -44,17 +44,6 @@ public class Ant{
         lastStep = dna[0][1].charAt(3);
         mapStore(initX, initY, defaultValue);
     }
-    public void positionMapping(){
-        // this is what all of the values are assumed to be if the ant hasn't been on it
-        defaultValue = dna[0][0].charAt(0);
-
-        // nested HashMap for storing values
-        
-        // put into by using:
-        
-
-        
-    }
 
     public int dnaChoice(char ptVal){
         for(int i=0; i<dna.length; i++){
@@ -63,7 +52,7 @@ public class Ant{
             }
         }
         // this should not ever be triggered
-        return -1;
+        return -99;
     }
 
     /** method that controls the position change of the and based on the cardinal point given */
@@ -90,14 +79,15 @@ public class Ant{
     }
     public char mapGet(int x, int y){
         // if the ant checks the coords and it returns null, assume default value by going:
-        if(map.get(x).get(y)==null){
-            map.put(x, new HashMap<Integer, Character>() {{
-                put(y, defaultValue); 
-            }});
+        if(!map.containsKey(x)){
+            map.put(x, new HashMap<Integer, Character>());
         }
-        return map.get(x).get(y);
+        HashMap<Integer, Character> innerMap = map.get(x);
+        if(!innerMap.containsKey(y)){
+            innerMap.put(y, defaultValue);
+        }
+        return innerMap.get(y);
     }
-
     /** utility method for returning the direction of the next step */
     public char stepDirection(int pointVal, char step){
         // iterate through the chars at the point value until the step is out
