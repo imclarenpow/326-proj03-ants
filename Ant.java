@@ -8,6 +8,7 @@ public class Ant{
     private HashMap<Integer, HashMap<Integer, Character>> map = new HashMap<>();
     // this keeps track of the last step direction
     private char lastStep;
+    private int lastStepNum;
 
     public Ant(ArrayList<String> dna){
         dnaDecoder(dna);
@@ -23,7 +24,6 @@ public class Ant{
             mapStore(posX, posY, colour);
             char nextStep = stepDirection(ptVal, lastStep); 
             movement(nextStep);
-            System.out.println(stepDebug(i));
         }
 
     }
@@ -44,6 +44,7 @@ public class Ant{
         defaultValue = dna[0][0].charAt(0);
         // ant is presumed to have made last move in first array
         lastStep = dna[0][1].charAt(3);
+        lastStepNum = 3;
         mapStore(initX, initY, defaultValue);
     }
 
@@ -95,22 +96,14 @@ public class Ant{
     /** utility method for returning the direction of the next step */
     public char stepDirection(int pointVal, char step){
         // iterate through the chars at the point value until the step is out
-        for(int i=0; i<dna[pointVal][1].length(); i++){
-            char temp = dna[pointVal][1].charAt(i);
-            // if the step is equal to the current position
-            if(step==temp){
-                // if the i value is the last index, return the direction at the first index
-                if(i==dna[pointVal][1].length()-1){
-                    return dna[pointVal][1].charAt(0);
-                // else, return the value at the next index
-                }else{
-                    return dna[pointVal][1].charAt(i+1);
-                }
-            }
+        if(lastStepNum==dna[pointVal][1].length()-1){
+            lastStepNum = 0;
+        }else{
+            lastStepNum++;
         }
-        // this should never be returned
-        return '!';
+        return dna[pointVal][1].charAt(lastStepNum);
     }
+    
     public char colourPos(int x, int y, int posVal){
         for(int i=0; i<dna[posVal][1].length(); i++){
             if(lastStep == dna[posVal][1].charAt(i)){
