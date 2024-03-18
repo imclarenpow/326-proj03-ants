@@ -23,6 +23,7 @@ public class Ant{
             mapStore(posX, posY, colour);
             char nextStep = stepDirection(ptVal, lastStep); 
             movement(nextStep);
+            System.out.println(stepDebug(i));
         }
 
     }
@@ -36,6 +37,7 @@ public class Ant{
             dna[i] = lines.get(i).split(" ");
         }
     }
+
     public void initialise(){
         int initX = 0;
         int initY = 0;
@@ -73,9 +75,11 @@ public class Ant{
     }
 
     public void mapStore(int x, int y, char value){
-        map.put(x, new HashMap<Integer, Character>() {{
-            put(y, value);
-        }});
+        if(!map.containsKey(x)){
+            map.put(x, new HashMap<Integer, Character>());
+        }
+        HashMap<Integer, Character> innerMap = map.get(x);
+        innerMap.put(y, value);
     }
     public char mapGet(int x, int y){
         // if the ant checks the coords and it returns null, assume default value by going:
@@ -113,6 +117,7 @@ public class Ant{
                 return dna[posVal][2].charAt(i);
             }
         }
+        // this should never be returned
         return '!';
     }
     // methods for getting info from private datafields
@@ -126,7 +131,11 @@ public class Ant{
         }
         return output;
     }
+    // simple method that returns the coordinates as a string
     public String getPosition(){
         return "# " + posX + " " + posY;
+    }
+    public String stepDebug(int stepNum){
+        return "#" + stepNum + " " + posX + " " + posY + " Last Step: " + lastStep + " Colour of Current Step: " + mapGet(posX, posY);
     }
 }
