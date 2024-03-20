@@ -1,8 +1,17 @@
 import java.util.*;
-
+/**
+ * A class to represent an ants journey.
+ *
+ * @author Isaac Powell and Rochelle Cole
+ */
 public class AntsJourney {
     private static ArrayList<ArrayList<String>> ants = new ArrayList<ArrayList<String>>();
     private static ArrayList<Integer> steps = new ArrayList<>();
+
+    /**
+     * The main method to execute the program.
+     * @param args command line
+     */
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> lines = new ArrayList<String>();
@@ -26,24 +35,42 @@ public class AntsJourney {
             System.out.println();
         }
     }
+
+    /**
+     * A method to Process each line of the .txt file
+     * @param lines lines from the .txt file
+     */
     public static void lineProcessing(ArrayList<String> lines){
         int arraylistIndex = -1;
-        for(int i = 0; i<lines.size(); i++){
-            if(!lines.get(i).trim().isEmpty()){
-                char temp = lines.get(i).charAt(0);
-                if(temp=='#'){
-                    ants.add(new ArrayList<String>());
-
-                    arraylistIndex++;
-                }else if(Character.isDigit(temp)){
-                    steps.add(stringToInt(lines.get(i).trim()));
-                }else{
+       
+        for(int i = 0; i<lines.size(); i++){//loop through lines
+            if (lines.get(i).trim().isEmpty()) { 
+                ants.add(new ArrayList<String>()); //add an ant to the ants array 
+                arraylistIndex++;
+            }
+            else{
+                char temp = lines.get(i).charAt(0);//gets first character of the line
+                if (Character.isDigit(temp)) {
+                    steps.add(stringToInt(lines.get(i).trim()));                    
+                }
+                else if (temp!='#') {
+                    if (arraylistIndex==-1) {
+                        ants.add(new ArrayList<String>()); //add an ant to the ants array 
+                        arraylistIndex++;
+                    }
                     ants.get(arraylistIndex).add(lines.get(i));
                 }
-            }
+
+                }
         }
 
     }
+
+    /**
+     * A method for converting a String to an Integer
+     * @param input a String
+     * @return an int
+     */
     public static int stringToInt(String input){
         try{
             return Integer.parseInt(input);
