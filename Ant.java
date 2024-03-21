@@ -27,9 +27,9 @@ public class Ant{
      * A method to understand what order to run the other methods in 
      * @param numberOfMoves the number of steps the ant should take.
      * */
-    public void task(int numberOfMoves){
+    public void task(long numberOfMoves){
         initialise();
-        for(int i=0; i<numberOfMoves; i++){
+        for(long i=0; i<numberOfMoves; i++){
         // check value of point
             char pointVal = mapGet(posX, posY);
             int ptVal = dnaChoice(pointVal); 

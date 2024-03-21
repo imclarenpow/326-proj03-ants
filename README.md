@@ -2,7 +2,8 @@
 ## Ease of use
 To compile code just run ```./compile.sh``` in terminal (you need to have bash installed)
 ## Current Issues
-Currently only issue is that it doesn't like negative integer values? need to figure out whats going on.
+Currently, the program will run out of memory if we run 10,000,000,000 steps or something similar. This can be fixed by allocating more memory
+```java -Xmx8g AntsJourney < i0.txt > output.txt```
 
 ## Implementation
 Two classes = ```Ant``` which is an object class that is run by ```AntsJourney``` the main class

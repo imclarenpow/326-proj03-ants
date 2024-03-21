@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class AntsJourney {
     private static ArrayList<ArrayList<String>> ants = new ArrayList<ArrayList<String>>();
-    private static ArrayList<Integer> steps = new ArrayList<>();
+    private static ArrayList<Long> steps = new ArrayList<>();
 
     /**
      * The main method to execute the program.
@@ -33,6 +33,7 @@ public class AntsJourney {
             System.out.println(steps.get(i));
             System.out.println(ant[i].getPosition());
             System.out.println();
+            ant[i]=null;
         }
     }
 
@@ -51,7 +52,7 @@ public class AntsJourney {
             else{
                 char temp = lines.get(i).charAt(0);//gets first character of the line
                 if (Character.isDigit(temp)) {
-                    steps.add(stringToInt(lines.get(i).trim()));                    
+                    steps.add(Long.parseLong(lines.get(i).trim()));                    
                 }
                 else if (temp!='#') {
                     if (arraylistIndex==-1) {
