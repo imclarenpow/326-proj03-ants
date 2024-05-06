@@ -12,10 +12,3 @@ b WNES wwww
 5
 # -1 0
 
-w NSEW wpom 
-p SEWN pomw 
-o ESWN omwp 
-m WNES mwpo 
-100000000
-# 1 -49999997
-

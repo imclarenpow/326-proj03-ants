@@ -13,8 +13,8 @@ b WNES wwww
 5
 
 # Nasty One
-w NSEW wpom
-p SEWN pomw
-o ESWN omwp
-m WNES mwpo
-100000000
+# w NSEW wpom
+# p SEWN pomw
+# o ESWN omwp
+# m WNES mwpo
+# 100000000

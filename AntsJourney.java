@@ -21,6 +21,8 @@ public class AntsJourney {
         scanner.close();
         lineProcessing(lines);
         Ant[] ant = new Ant[steps.size()];
+        // TODO: figure if we need to do ant.length-1 for this loop
+            // or if we need to do ant.length
         for(int i=0; i<ant.length; i++){
             ant[i] = new Ant(ants.get(i));
             ant[i].task(steps.get(i));
