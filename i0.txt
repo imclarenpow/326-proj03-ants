@@ -15,8 +15,16 @@ b WNES wwww
 
 
 # Nasty One
+<<<<<<< HEAD
 w NSEW wpom
 p SEWN pomw
 o ESWN omwp
 m WNES mwpo
 100
+=======
+# w NSEW wpom
+# p SEWN pomw
+# o ESWN omwp
+# m WNES mwpo
+# 100000000
+>>>>>>> 1208a2b0fe3f2546524d9fada370cb32fc8cb873
