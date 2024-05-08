@@ -28,14 +28,14 @@ public class Ant{
      * @param numberOfMoves the number of steps the ant should take.
      * */
     public void task(long numberOfMoves){
-        initialise();
+        initialise();        
         for(long i=0; i<numberOfMoves; i++){
         // check value of point
             char pointVal = mapGet(posX, posY);
             int ptVal = dnaChoice(pointVal); 
-            char colour = colourPos(posX, posY, ptVal);
-            mapStore(posX, posY, colour);
             char nextStep = stepDirection(ptVal, lastStep); 
+            char colour = dna[ptVal][2].charAt(lastStepNum);
+            mapStore(posX, posY, colour);
             movement(nextStep);
         }
 
@@ -149,23 +149,6 @@ public class Ant{
             lastStepNum = 3;
         }
         return dna[pointVal][1].charAt(lastStepNum);
-    }
-    
-    /**
-     * A method to return colour of the given position
-     * @param x position on the x-axis
-     * @param y position on the y-axis
-     * @param posVal
-     * @return colour at the given position
-     */
-    public char colourPos(long x, long y, int posVal){
-        for(int i=0; i<dna[posVal][1].length(); i++){
-            if(lastStep == dna[posVal][1].charAt(i)){
-                return dna[posVal][2].charAt(i);
-            }
-        }
-        // this should never be returned
-        return '!';
     }
 
     /**
