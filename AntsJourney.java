@@ -46,8 +46,10 @@ public class AntsJourney {
        
         for(int i = 0; i<lines.size(); i++){//loop through lines
             if (lines.get(i).trim().isEmpty()) { 
-                ants.add(new ArrayList<String>()); //add an ant to the ants array 
-                arraylistIndex++;
+                if (!ants.isEmpty() && !ants.get(ants.size() - 1).isEmpty()) {
+                    ants.add(new ArrayList<String>()); //add an ant to the ants array 
+                    arraylistIndex++;
+                }
             }
             else{
                 char temp = lines.get(i).charAt(0);//gets first character of the line

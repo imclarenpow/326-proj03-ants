@@ -1,0 +1,5 @@
+
+# Langton
+w ESWN bbbb
+b WNES wwww
+100

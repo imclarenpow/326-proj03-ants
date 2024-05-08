@@ -55,23 +55,13 @@ public class Ant{
     }
     /**
      * A method to initialise the ant.
-     * Setting the starting point at 0,0 , the default value as the first character and is north facing having arrived from the south where plausible.
+     * Setting the starting point at 0,0 , the default value as the first character and is north facing having arrived from the south .
      */
     public void initialise(){
         int initX = 0;
         int initY = 0;
         defaultValue = dna[0][0].charAt(0);
-        // ant is presumed to have made last move in first array if no dna for a North facing step is present
-        for(int i = 0; i<4; i++){
-            if(dna[0][1].charAt(i)=='N'){
-                lastStep = 'N';
-                lastStepNum = i;
-            }
-            else{
-                lastStep = dna[0][1].charAt(3);
-                lastStepNum = 3;
-            }
-        }
+        lastStep = 'N';
         mapStore(initX, initY, defaultValue);
     }
 
@@ -149,10 +139,14 @@ public class Ant{
      */
     public char stepDirection(int pointVal, char step){
         // iterate through the chars at the point value until the step is out
-        if(lastStepNum==dna[pointVal][1].length()-1){
+        if(step == 'N'){
             lastStepNum = 0;
-        }else{
-            lastStepNum++;
+        }else if (step == 'E') {
+            lastStepNum = 1;
+        }else if (step == 'S') {
+            lastStepNum = 2;
+        }else if (step == 'W') {
+            lastStepNum = 3;
         }
         return dna[pointVal][1].charAt(lastStepNum);
     }

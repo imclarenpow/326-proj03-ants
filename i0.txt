@@ -10,11 +10,13 @@ x NNNN ....
 # Langton
 w ESWN bbbb
 b WNES wwww
-5
+100
+
+
 
 # Nasty One
 w NSEW wpom
 p SEWN pomw
 o ESWN omwp
 m WNES mwpo
-100000000
+100
